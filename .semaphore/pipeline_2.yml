@@ -10,10 +10,10 @@ blocks:
       jobs:
         - name: Docker Build
           commands:
-            - 'echo "${Nima235@#%}" | docker login -u "${nimadej}" --password-stdin'
-            - 'docker pull nimadej/django-markdown-editor:latest || true'
-            - 'docker build --cache-from=nimadej/django-markdown-editor:latest -t nimadej/django-markdown-editor:latest .'
-            - 'docker push nimadej/django-markdown-editor:latest'
+            - 'echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin'
+            - 'docker pull $DOCKER_USERNAME/django-markdown-editor:latest || true'
+            - 'docker build --cache-from=$DOCKER_USERNAME/django-markdown-editor:latest -t $DOCKER_USERNAME/django-markdown-editor:latest .'
+            - 'docker push $DOCKER_USERNAME/django-markdown-editor:latest'
       secrets:
         - name: dockerhub
       prologue:
