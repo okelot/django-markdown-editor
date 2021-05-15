@@ -12,7 +12,7 @@ blocks:
           commands:
             - 'echo "Nima235@#%" | docker login -u "nimadej" --password-stdin'
             - 'docker pull nimadej/django-markdown-editor:latest || true'
-            - 'docker build --cache-from=nimadej/django-markdown-editor:latest -t nimadej/django-markdown-editor:latest .'
+            - 'docker build -t nimadej/django-markdown-editor:latest .'
             - 'docker push nimadej/django-markdown-editor:latest'
       secrets:
         - name: dockerhub
